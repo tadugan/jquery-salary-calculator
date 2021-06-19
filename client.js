@@ -118,7 +118,10 @@ function updateMonthlyCost() {
     costEl.empty();
     // append updated total cost
     costEl.append(`<p id="totalMonthlyOutput">Total Monthly Cost: ${monthlyCostDecimal}</p>`);
-    // check if total 
+    // checks if total exceeds $20000 per month, adds red background if so
+    if (monthlyCost > 20000) {
+        costEl.css('background-color', 'red');
+    }
 }
 
 
