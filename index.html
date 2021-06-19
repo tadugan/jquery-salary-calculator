@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="client.js"></script>
+    <title>Tim Dugan's Salary Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>Tim Dugan's Salary Calculator</h1>
+    </header>
+    <main>
+        <section class="addEmployeeBar">
+            <section>
+                <input type="text" placeholder="First Name" class="inputField" id="firstNameInput">
+                <input type="text" placeholder="Last Name" class="inputField" id="lastNameInput">
+                <input type="text" placeholder="ID" class="inputField" id="idInput">
+                <input type="text" placeholder="Title" class="inputField" id="titleInput">
+                <input type="number" placeholder="Annual Salary" class="inputField" id="salaryInput">
+            </section>
+            <section>
+                <button id="submitButton">Submit</button>
+            </section>
+        </section>
+        <section class="employeeSalaryBar">
+            <section>
+                <table>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Annual Salary</th>
+                        <th>Delete?</th>
+                    </tr>
+                    <tr>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>Test</td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <p id="totalMonthlyOutput">Total Monthly: $15,500.00</p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

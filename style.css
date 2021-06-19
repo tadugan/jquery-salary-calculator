@@ -1,0 +1,50 @@
+body {
+    margin: 0px;
+    font-family: Futura, sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    background-color: darkgray;
+    color: white;
+    height: 100px;
+    margin: 0px;
+    padding-top: 0px;
+    font-family: Futura, sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.addEmployeeBar {
+    height: 150px;
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.employeeSalaryBar {
+    height: calc(100vh - 250px);
+    background-color: white;
+}
+
+.inputField {
+    height: 20px;
+    margin-top: 10px;
+    /* try display flex for screen resizing?? */
+}
+
+#submitButton {
+    margin: 20px;
+}
+
+#totalMonthlyOutput {
+    float: right;
+}
