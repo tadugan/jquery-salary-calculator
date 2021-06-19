@@ -1,24 +1,25 @@
 // TODO
 // *** STRUCTURE ***
-// setup basics
-// Link scripts/css
-// Build html site structure
-// create add employee bar
-//      create input fields
-//          firstName, lastName, ID number, job title, annual salary
-//      create submit button
-// create employee salary chart (<table>??)
-//      create table
-//      create total salary counter
+// * setup basics
+// * Link scripts/css
+// * Build html site structure
+// * create add employee bar
+//     * create input fields
+//          * firstName, lastName, ID number, job title, annual salary
+//      * create submit button
+// * create employee salary chart (<table>??)
+//      * create table
+//      * create total salary counter
 // *** LOGIC ***
 // add employee bar input fields
-//      check if any input fields are empty
-//      alert user if input fields are empty
-//      use submit button and input values to create employee object
-//      add employee object to employee array
+//      * check if any input fields are empty
+//          extra: alert user on DOM
+//      * alert user if input fields are empty
+//      * use submit button and input values to create employee object
+//      * add employee object to employee array
 // employee salary bar DOM
-//      when new employee is add, update the DOM
-//      also update Total monthly salary
+//      * when new employee is add, update the DOM
+//      * also update Total monthly salary
 //      sort out delete button
 
 // array to hold the employee objects created by the submit button
@@ -31,7 +32,11 @@ $(document).ready(function() {
 });
 
 function addEmployee() {
-    console.log('in addEmployee');
+    // check if any input fields are empty, stop function if true
+    if (isInputFieldEmpty()) {
+        console.log('input field is empty');
+        return;
+    }
     // capture input from inputFields
     let firstNameInput = $('#firstNameInput').val();
     let lastNameInput = $('#lastNameInput').val();
@@ -51,7 +56,6 @@ function addEmployee() {
     // clear input fields
 
     // test employees array
-    console.log(employees);
 }
 
 // constructor to create new Employee objects
@@ -106,5 +110,27 @@ function updateMonthlyCost() {
     // empty total cost element
     costEl.empty();
     // append updated total cost
-    costEl.append(`<p id="totalMonthlyOutput">Total Monthly: ${totalCost}</p>`);
+    costEl.append(`<p id="totalMonthlyOutput">Total Monthly Cost: ${totalCost}</p>`);
+}
+
+function isInputFieldEmpty() {
+    switch (true) {
+        case $('#firstNameInput').val().length < 1:
+            return true;
+
+        case $('#lastNameInput').val().length < 1:
+            return true;
+
+        case $('#idInput').val().length < 1:
+            return true;
+
+        case $('#titleInput').val().length < 1:
+            return true;
+
+        case $('#salaryInput').val().length < 1:
+            return true;
+
+        default:
+            return false;
+    }
 }
