@@ -22,8 +22,9 @@
 //      * also update Total MONTHLY salary
 //      * add red background to monthly cost if exceeds $20,000
 //          extra: target only the text
-//      clear input fields
-//      sort out delete button
+//      * clear input fields
+//      * sort out delete button
+//          stretch: delete button removes employee from array and updates DOM
 
 // array to hold the employee objects created by the submit button
 const employees = [];
@@ -32,6 +33,8 @@ $(document).ready(function() {
     console.log('booting up salary calculator');
     // listener for submit button
     $('#submitButton').on('click', addEmployee);
+    $('#employeeTable').on('click', 'button.deleteButton', removeEmployee);
+
 });
 
 function addEmployee() {
@@ -87,7 +90,6 @@ function updateDomTable() {
 </tr>`);
     // append info to table
     for (let employee of employees) {
-        console.log('each employee');
         tableEl.append(`<tr>
         <td>${employee.firstName}</td>
         <td>${employee.lastName}</td>
@@ -157,4 +159,9 @@ function clearInputs() {
     $('#idInput').val('');
     $('#titleInput').val('');
     $('#salaryInput').val('');
+}
+
+function removeEmployee() {
+    console.log('removing employee');
+    $(this).parent().parent().remove();
 }
