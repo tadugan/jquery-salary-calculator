@@ -19,7 +19,8 @@
 //      * add employee object to employee array
 // employee salary bar DOM
 //      * when new employee is add, update the DOM
-//      * also update Total monthly salary
+//      * also update Total MONTHLY salary
+//      add red background to monthly cost if exceeds $20,000
 //      sort out delete button
 
 // array to hold the employee objects created by the submit button
@@ -91,7 +92,7 @@ function updateDomTable() {
         <td>${employee.id}</td>
         <td>${employee.title}</td>
         <td>${employee.annualSalary}</td>
-        <td></td>
+        <td><button class="deleteButton">Delete</button></td>
     </tr>`);
     }
     // update total monthly cost
@@ -101,18 +102,27 @@ function updateDomTable() {
 // updates the monthly cost on the DOM
 function updateMonthlyCost() {
     let totalCost = 0;
+    let monthlyCost = 0;
+    let monthlyCostDecimal = 0;
     // sums up total salaries of all employees
     for (let employee of employees) {
         totalCost += employee.annualSalary;
     }
+    // determines monthly cost from annual cost
+    monthlyCost = totalCost / 12;
+    // makes readable cost (only to 2nd decimal)
+    monthlyCostDecimal = monthlyCost.toFixed(2)
     // target total monthly element
     let costEl = $('#totalMonthlyOutput');
     // empty total cost element
     costEl.empty();
     // append updated total cost
-    costEl.append(`<p id="totalMonthlyOutput">Total Monthly Cost: ${totalCost}</p>`);
+    costEl.append(`<p id="totalMonthlyOutput">Total Monthly Cost: ${monthlyCostDecimal}</p>`);
+    // check if total 
 }
 
+
+// function to check if any input field is empty
 function isInputFieldEmpty() {
     switch (true) {
         case $('#firstNameInput').val().length < 1:
