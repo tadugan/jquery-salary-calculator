@@ -20,7 +20,9 @@
 // employee salary bar DOM
 //      * when new employee is add, update the DOM
 //      * also update Total MONTHLY salary
-//      add red background to monthly cost if exceeds $20,000
+//      * add red background to monthly cost if exceeds $20,000
+//          extra: target only the text
+//      clear input fields
 //      sort out delete button
 
 // array to hold the employee objects created by the submit button
@@ -55,7 +57,7 @@ function addEmployee() {
     // update total monthly on the DOM
     updateDomTable();
     // clear input fields
-
+    clearInputs();
     // test employees array
 }
 
@@ -146,4 +148,13 @@ function isInputFieldEmpty() {
         default:
             return false;
     }
+}
+
+// clears all input fields
+function clearInputs() {
+    $('#firstNameInput').val('');
+    $('#lastNameInput').val('');
+    $('#idInput').val('');
+    $('#titleInput').val('');
+    $('#salaryInput').val('');
 }
