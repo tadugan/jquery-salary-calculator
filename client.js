@@ -33,11 +33,19 @@ $(document).ready(function() {
 function addEmployee() {
     console.log('in addEmployee');
     // capture input from inputFields
+    let firstNameInput = $('#firstNameInput').val();
+    let lastNameInput = $('#lastNameInput').val();
+    let idInput = $('#idInput').val();
+    let titleInput = $('#titleInput').val();
+    let annualSalaryInput = $('#annualSalaryInput').val();
     // create new employee object
+    const newEmployee = new Employee(firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput);
     // add new employee object to employees array
+    employees.push(newEmployee);
     // update table on DOM with info from employees array
     // update total monthly on the DOM
     // clear input fields
+    console.log(employees);
 }
 
 function Employee(firstName, lastName, id, title, annualSalary) {
@@ -47,7 +55,3 @@ function Employee(firstName, lastName, id, title, annualSalary) {
     this.title = title;
     this.annualSalary = annualSalary;
 }
-
-const empTim = new Employee('tim', 'dugan', 1234, 'developer', 42000);
-
-console.log(empTim);
