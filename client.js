@@ -47,7 +47,7 @@ function addEmployee() {
     employees.push(newEmployee);
     // update table on DOM with info from employees array
     // update total monthly on the DOM
-    updateDom();
+    updateDomTable();
     // clear input fields
 
     // test employees array
@@ -64,7 +64,7 @@ function Employee(firstName, lastName, id, title, annualSalary) {
 }
 
 // updates table and total
-function updateDom() {
+function updateDomTable() {
     //target table element
     let tableEl = $('#employeeTable');
     // empty table element
@@ -77,7 +77,7 @@ function updateDom() {
     <th>Title</th>
     <th>Annual Salary</th>
     <th>Delete?</th>
-</tr>`)
+</tr>`);
     // append info to table
     for (let employee of employees) {
         console.log('each employee');
@@ -91,4 +91,20 @@ function updateDom() {
     </tr>`);
     }
     // update total monthly cost
+    updateMonthlyCost();
+}
+
+// updates the monthly cost on the DOM
+function updateMonthlyCost() {
+    let totalCost = 0;
+    // sums up total salaries of all employees
+    for (let employee of employees) {
+        totalCost += employee.annualSalary;
+    }
+    // target total monthly element
+    let costEl = $('#totalMonthlyOutput');
+    // empty total cost element
+    costEl.empty();
+    // append updated total cost
+    costEl.append(`<p id="totalMonthlyOutput">Total Monthly: ${totalCost}</p>`);
 }
