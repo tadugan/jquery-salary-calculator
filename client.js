@@ -21,6 +21,7 @@
 //      also update Total monthly salary
 //      sort out delete button
 
+// array to hold the employee objects created by the submit button
 const employees = [];
 
 $(document).ready(function() {
@@ -38,3 +39,15 @@ function addEmployee() {
     // update total monthly on the DOM
     // clear input fields
 }
+
+function Employee(firstName, lastName, id, title, annualSalary) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.id = id;
+    this.title = title;
+    this.annualSalary = annualSalary;
+}
+
+const empTim = new Employee('tim', 'dugan', 1234, 'developer', 42000);
+
+console.log(empTim);
