@@ -14,8 +14,8 @@
 // *** LOGIC ***
 // add employee bar input fields
 //      * check if any input fields are empty
-//          extra: alert users on the DOM
-//          extra: check if employee Id is a duplicate
+//          * extra: check if employee Id is a duplicate
+//          extra: add all alerts to DOM
 //      * alert user if input fields are empty
 //      * use submit button and input values to create employee object
 //      * add employee object to employee array
@@ -130,13 +130,13 @@ function updateMonthlyCost() {
     // empty total cost element
     costEl.empty();
     // append updated total cost
-    costEl.append(`<p id="totalMonthlyOutput">Total Monthly Cost: ${monthlyCostDecimal}</p>`);
+    costEl.append(`<p id="totalMonthlyOutput">Total Monthly Cost: <span id="justTheDollars">${monthlyCostDecimal}</span></p>`);
     // checks if total exceeds $20000 per month, adds red background if so
     if (monthlyCost > 20000) {
-        costEl.css('background-color', 'red');
+        $('#justTheDollars').css('background-color', 'red');
     }
     else {
-        costEl.css('background-color', 'white');
+        $('#justTheDollars').css('background-color', 'white');
     }
 }
 
@@ -178,6 +178,7 @@ function clearInputs() {
     $('#salaryInput').val('');
 }
 
+// base mode version of removing an employee from the table
 // function removeEmployee() {
 //     console.log('removing employee');
 //     $(this).parent().parent().remove();
