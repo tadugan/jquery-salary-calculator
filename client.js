@@ -14,7 +14,7 @@
 // *** LOGIC ***
 // add employee bar input fields
 //      * check if any input fields are empty
-//          extra: alert user on DOM
+//          extra: alert users on the DOM
 //          extra: check if employee Id is a duplicate
 //      * alert user if input fields are empty
 //      * use submit button and input values to create employee object
@@ -142,18 +142,23 @@ function updateMonthlyCost() {
 function isInputFieldEmpty() {
     switch (true) {
         case $('#firstNameInput').val().length < 1:
+            alertEmptyInput();
             return true;
 
         case $('#lastNameInput').val().length < 1:
+            alertEmptyInput();
             return true;
 
         case $('#idInput').val().length < 1:
+            alertEmptyInput();
             return true;
 
         case $('#titleInput').val().length < 1:
+            alertEmptyInput();
             return true;
 
         case $('#salaryInput').val().length < 1:
+            alertEmptyInput();
             return true;
 
         default:
@@ -192,4 +197,8 @@ function removeEmployee() {
     }
     // Removes employee from table display
     $(this).parent().parent().remove();
+}
+
+function alertEmptyInput() {
+    alert('Please fill all input fields.');
 }
