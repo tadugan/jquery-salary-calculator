@@ -1,4 +1,5 @@
 // TODO
+// * = checkmark
 // *** STRUCTURE ***
 // * setup basics
 // * Link scripts/css
@@ -14,6 +15,7 @@
 // add employee bar input fields
 //      * check if any input fields are empty
 //          extra: alert user on DOM
+//          extra: check if employee Id is a duplicate
 //      * alert user if input fields are empty
 //      * use submit button and input values to create employee object
 //      * add employee object to employee array
@@ -25,6 +27,10 @@
 //      * clear input fields
 //      * sort out delete button
 //          stretch: delete button removes employee from array and updates DOM
+// *** Styling ***
+//      Stretch: add in bootstrap styling
+//      
+
 
 // array to hold the employee objects created by the submit button
 const employees = [];
@@ -90,7 +96,7 @@ function updateDomTable() {
 </tr>`);
     // append info to table
     for (let employee of employees) {
-        tableEl.append(`<tr>
+        tableEl.append(`<tr id="${employee.id}">
         <td>${employee.firstName}</td>
         <td>${employee.lastName}</td>
         <td>${employee.id}</td>
@@ -161,7 +167,26 @@ function clearInputs() {
     $('#salaryInput').val('');
 }
 
+// function removeEmployee() {
+//     console.log('removing employee');
+//     $(this).parent().parent().remove();
+// }
+
+// test to remove employee from salary array
 function removeEmployee() {
     console.log('removing employee');
+    // targets
+    let empId = $(this).parent().parent().attr('id');
+    // remove employee with matching id from employee array
+    for (i=0;i<employees.length;i++) {
+        if (employees[i].id === empId) {
+            employees.splice(i, 1);
+            updateMonthlyCost();
+        }
+        else {
+            console.log('its not working');
+        }
+    }
+    // Removes employee from table display
     $(this).parent().parent().remove();
 }
