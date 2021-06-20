@@ -132,6 +132,9 @@ function updateMonthlyCost() {
     if (monthlyCost > 20000) {
         costEl.css('background-color', 'red');
     }
+    else {
+        costEl.css('background-color', 'white');
+    }
 }
 
 
