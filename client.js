@@ -56,8 +56,11 @@ function addEmployee() {
     let titleInput = $('#titleInput').val();
     let annualSalaryInput = Number($('#salaryInput').val());
 
-    console.log(annualSalaryInput);
-
+    // check if ID is a duplicate
+    if (isIdDuplicate(idInput)) {
+        alert('The ID you have entered is the same as an existing ID.')
+        return;
+    }
     // create new employee object
     const newEmployee = new Employee(firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput);
     // add new employee object to employees array
@@ -201,4 +204,15 @@ function removeEmployee() {
 
 function alertEmptyInput() {
     alert('Please fill all input fields.');
+}
+
+function isIdDuplicate(idValue) {
+    for (let employee of employees) {
+        if (employee.id === idValue) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
