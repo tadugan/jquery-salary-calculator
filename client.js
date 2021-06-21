@@ -23,10 +23,10 @@
 //      * when new employee is add, update the DOM
 //      * also update Total MONTHLY salary
 //      * add red background to monthly cost if exceeds $20,000
-//          extra: target only the text
+//          * extra: target only the text
 //      * clear input fields
 //      * sort out delete button
-//          stretch: delete button removes employee from array and updates DOM
+//          * stretch: delete button removes employee from array and updates DOM
 // *** Styling ***
 //      Stretch: add in bootstrap styling
 //      
@@ -105,7 +105,7 @@ function updateDomTable() {
         <td>${employee.id}</td>
         <td>${employee.title}</td>
         <td>${employee.annualSalary}</td>
-        <td><button class="deleteButton">Delete</button></td>
+        <td><button class="deleteButton btn-danger">Delete</button></td>
     </tr>`);
     }
     // update total monthly cost
